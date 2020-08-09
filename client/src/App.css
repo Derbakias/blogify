@@ -1,0 +1,157 @@
+:root {
+  --primary-color: #f4faff;
+  --secondary-color: #048a81;
+  --card-color: #d6edff;
+  --primary-text: #0e0f19;
+  --secondary-text: #8a4f7d;
+  --primary-btn: #fc7753;
+  --secondary-btn: #94a187;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+body {
+  background: var(--primary-color);
+  color: var(--primary-text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: var(--primary-text);
+  text-decoration: none;
+}
+
+.container {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* Navbar */
+#nav {
+  width: 100%;
+  color: var(--primary-color);
+  background: var(--secondary-color);
+}
+
+.nav-wrapper {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 10%;
+}
+
+.navlinks {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navlinks a {
+  padding: 2rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.user {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user i {
+  margin: 0 1rem;
+  font-weight: 600;
+}
+
+.user .fa-user-circle {
+  color: var(--primary-text);
+}
+
+.user i:hover {
+  color: var(--secondary-text);
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+/* home */
+.home h1 {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.post-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  width: auto;
+}
+
+.post-grid_column {
+  background-clip: padding-box;
+}
+
+/* Mini Post Card */
+.post-card {
+  width: 85%;
+  height: fit-content;
+  padding: 0.8rem;
+  margin: 1rem;
+  background: var(--card-color);
+  border-radius: 10px;
+}
+
+.post-card h3 {
+  position: relative;
+  width: 70%;
+  margin: 0rem auto;
+}
+
+.post-card h3::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 60px;
+  height: 6px;
+  background: var(--secondary-text);
+}
+
+.post-card .body {
+  margin: 1rem auto;
+  max-width: 70%;
+  font-size: 0.9rem;
+}
+
+.post-card hr {
+  max-width: 65%;
+  margin: 1rem auto;
+  color: var(--secondary-btn);
+}
+
+.post-card .post-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-card .post-info p:first-of-type {
+  margin-right: 10px;
+  font-weight: 600;
+}
