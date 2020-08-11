@@ -1,10 +1,26 @@
 import React, { Fragment, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 import { StateContext } from "../Context/StateProvider";
 
 function Navbar() {
-  const { user } = useContext(StateContext);
+  const history = useHistory();
+  const { user, setUser } = useContext(StateContext);
 
+  const removeCookie = (e) => {
+    console.log("logout");
+    axios
+      .get("/api/auth/logout")
+      .then((res) => {
+        setUser({
+          username: "",
+          user_id: "",
+          isAuth: false,
+        });
+        history.push("/login");
+      })
+      .catch((err) => console.log(err.response));
+  };
   return (
     <nav id="nav">
       <div className="nav-wrapper container">
@@ -27,19 +43,25 @@ function Navbar() {
         <div className="user">
           {user.isAuth ? (
             <Fragment>
+              <Link to="/create">
+                <i className="fas fa-folder-plus"></i>
+              </Link>
               <i className="far fa-user-circle">
                 {" "}
                 {user.username}
               </i>
-              <i className="fas fa-sign-out-alt">
-                {" "}
+              <i
+                onClick={removeCookie}
+                className="fas fa-sign-out-alt"
+              >
                 Sign Out
               </i>
             </Fragment>
           ) : (
             <Fragment>
-              <i className="fas fa-user-lock"> Login</i>
-              <i className="fas fa-user-plus"> Register</i>
+              <Link to="/login">
+                <i className="fas fa-user-lock"> Login</i>
+              </Link>
             </Fragment>
           )}
         </div>

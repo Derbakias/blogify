@@ -56,7 +56,7 @@ router.post(
       user.password = await bcrypt.hash(password, salt);
 
       await user.save();
-      res.json({ msg: "User registered!" });
+      res.status(200).json({ msg: "User registered!" });
     } catch (err) {
       console.log(err.message);
       res.status(500).json({ msg: "Server Error" });

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Masonry from "react-masonry-css";
+import moment from "moment";
 
 function Post({ posts }) {
   // cut the body text on preview
@@ -13,11 +14,11 @@ function Post({ posts }) {
   };
 
   const grid = posts.map((post) => (
-    <div className="post-card">
+    <div className="post-card" key={post._id}>
       <Link
         to={{
-          pathname: "/full-view/" + post.id,
-          id: post.id,
+          pathname: "/full-view/" + post._id,
+          id: post._id,
           postData: post,
         }}
       >
@@ -26,7 +27,7 @@ function Post({ posts }) {
         <hr />
         <div className="post-info">
           <p>{`By ${post.author}`}</p>
-          <p>{post.date}</p>
+          <p>{moment(post.date).fromNow()}</p>
         </div>
       </Link>
     </div>

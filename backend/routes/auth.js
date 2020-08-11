@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const privateRoute = require("../middleware/privateRoute");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const config = require("config");
@@ -9,6 +10,38 @@ const {
 } = require("express-validator");
 
 const User = require("../models/User");
+
+// @ GET /api/auth/logout
+// @ remove cookie
+// private
+router.get("/logout", privateRoute, (req, res) => {
+  console.log("logout");
+  if (res.statusCode === 200) {
+    res.cookie("jwtCookie", "No Access", {
+      httpOnly: true,
+    });
+    res.json({ msg: "logged out" });
+  }
+  res.statusCode;
+  if (res.status === 500) {
+    res.json({ msg: "Server Error" });
+  }
+});
+
+// @ GET /api/auth
+// @ get logged users
+// private
+router.get("/", privateRoute, async (req, res) => {
+  try {
+    const user = await User.findById(req.user).select(
+      "-password"
+    );
+    res.status(200).json(user);
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json({ msg: "Server Error" });
+  }
+});
 
 // @ POST /api/auth
 // @ login users
@@ -33,7 +66,9 @@ router.post(
 
     try {
       let user = await User.findOne({ email });
-
+      let userData = await User.find({ email }).select(
+        "-password"
+      );
       if (!user) {
         return res
           .status(400)
@@ -63,7 +98,7 @@ router.post(
             res.cookie("jwtCookie", token, {
               httpOnly: true,
             });
-            res.json({ msg: "You are logged in!" });
+            res.json(userData);
           }
         }
       );

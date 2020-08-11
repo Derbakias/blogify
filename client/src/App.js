@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  route,
   Route,
 } from "react-router-dom";
 import Navbar from "./Components/Navbar";
@@ -12,6 +11,9 @@ import Home from "./Pages/Home";
 import About from "./Pages/About";
 import MyPosts from "./Pages/MyPosts";
 import FullView from "./Pages/FullView";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
+import Create from "./Pages/Create";
 
 function App() {
   return (
@@ -36,6 +38,21 @@ function App() {
                 exact
                 path="/full-view/:postID"
                 component={FullView}
+              />
+              <Route
+                exact
+                path="/create"
+                component={Create}
+              />
+              <Route
+                exact
+                path="/login"
+                component={Login}
+              />
+              <Route
+                exact
+                path="/register"
+                component={Register}
               />
             </Switch>
           </div>

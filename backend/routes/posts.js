@@ -67,7 +67,7 @@ router.get("/", privateRoute, async (req, res) => {
   try {
     const user = req.user;
 
-    const posts = await await Post.find({
+    const posts = await Post.find({
       $or: [
         {
           author_id: user,
@@ -76,6 +76,21 @@ router.get("/", privateRoute, async (req, res) => {
       ],
     }).sort({ date: -1 });
     res.status(200).json(posts);
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json({ msg: "Server Error" });
+  }
+});
+
+// @ GET /api/posts/:id
+// @ read a post
+// private
+router.get("/:id", privateRoute, async (req, res) => {
+  try {
+    const user = req.user;
+
+    const post = await Post.findById(req.params.id);
+    res.status(200).json(post);
   } catch (err) {
     console.log(err.message);
     res.status(500).json({ msg: "Server Error" });

@@ -11,4 +11,4 @@ app.use("/api/users", require("./routes/users"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/posts", require("./routes/posts"));
 
-app.listen(3000, () => console.log("Server on port 3000"));
+app.listen(8080, () => console.log("Server on port 8080"));
