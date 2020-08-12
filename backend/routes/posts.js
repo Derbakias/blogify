@@ -159,19 +159,21 @@ router.put(
 router.delete("/:id", privateRoute, async (req, res) => {
   try {
     let post = await Post.findById(req.params.id);
+
     if (!post)
       return res
         .status(400)
         .json({ msg: "Post not found!" });
-    if (post.author_id.toString() !== req.user) {
+    if (post.author_id.toString() !== req.user.toString()) {
       return res
         .status(400)
         .json({ msg: "Access Denied!" });
+    } else {
+      await Post.findByIdAndRemove(req.params.id);
+      res
+        .status(200)
+        .json({ msg: "Post deleted successfully" });
     }
-    await Post.findOneAndDelete(req.params.id);
-    res
-      .status(200)
-      .json({ msg: "Post deleted successfully" });
   } catch (err) {
     console.log(err.message);
     res.status(500).json({ msg: "Server Error" });
