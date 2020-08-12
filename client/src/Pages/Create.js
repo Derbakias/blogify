@@ -11,9 +11,8 @@ function Create(props) {
   const { user, setUser } = useContext(StateContext);
   const [fullPost, setFullPost] = useState({});
   let history = useHistory();
-  const url_id = props.match.params.postID;
   useEffect(() => {
-    // check if user is auth
+    // check if user is authenticated
     axios
       .get("/api/auth")
       .then(({ data }) =>

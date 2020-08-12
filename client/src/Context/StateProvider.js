@@ -11,9 +11,18 @@ function StateProvider(props) {
 
   const [posts, setPosts] = useState([]);
 
+  const [loading, setLoading] = useState(false);
+
   return (
     <StateContext.Provider
-      value={{ user, setUser, posts, setPosts }}
+      value={{
+        user,
+        setUser,
+        posts,
+        setPosts,
+        loading,
+        setLoading,
+      }}
     >
       {props.children}
     </StateContext.Provider>

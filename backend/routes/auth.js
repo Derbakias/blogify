@@ -15,11 +15,11 @@ const User = require("../models/User");
 // @ remove cookie
 // private
 router.get("/logout", privateRoute, (req, res) => {
-  console.log("logout");
   if (res.statusCode === 200) {
-    res.cookie("jwtCookie", "No Access", {
-      httpOnly: true,
-    });
+    // res.cookie("jwtCookie", "No Access", {
+    //   httpOnly: true,
+    // });
+    res.clearCookie("jwtCookie");
     res.json({ msg: "logged out" });
   }
   res.statusCode;

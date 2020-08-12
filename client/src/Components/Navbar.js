@@ -19,51 +19,63 @@ function Navbar() {
         });
         history.push("/login");
       })
-      .catch((err) => console.log(err.response));
+      .catch((err) => {
+        console.log(err.response);
+        history.push("/login");
+      });
   };
+  let authStyle;
+  let nonAuthStyle;
+  if (user.isAuth) {
+    authStyle = { visibility: "visible" };
+    nonAuthStyle = { visibility: "hidden" };
+  } else {
+    authStyle = { visibility: "hidden" };
+    nonAuthStyle = { visibility: "visible" };
+  }
+
   return (
     <nav id="nav">
-      <div className="nav-wrapper container">
+      <div className="nav-wrapper">
         <div className="logo">
-          <h2>Blogify</h2>
+          <Link to="/">
+            <h2>Blogify</h2>
+          </Link>
         </div>
         <ul className="navlinks">
           <li className="navlink">
             <Link to="/">All</Link>
           </li>
-          {user.isAuth && (
-            <li className="navlink">
-              <Link to="/my-posts">My Posts</Link>
-            </li>
-          )}
+          <li style={authStyle} className="navlink">
+            <Link to="/my-posts">My Posts</Link>
+          </li>
           <li className="navlink">
             <Link to="/about">About </Link>
           </li>
         </ul>
-        <div className="user">
-          {user.isAuth ? (
-            <Fragment>
-              <Link to="/create">
-                <i className="fas fa-folder-plus"></i>
-              </Link>
-              <i className="far fa-user-circle">
-                {" "}
-                {user.username}
-              </i>
-              <i
-                onClick={removeCookie}
-                className="fas fa-sign-out-alt"
-              >
-                Sign Out
-              </i>
-            </Fragment>
-          ) : (
-            <Fragment>
-              <Link to="/login">
-                <i className="fas fa-user-lock"> Login</i>
-              </Link>
-            </Fragment>
-          )}
+        <div style={authStyle} className="user">
+          <Fragment>
+            <Link style={authStyle} to="/create">
+              <i className="fas fa-folder-plus"></i>
+            </Link>
+            <i
+              style={authStyle}
+              className="far fa-user-circle"
+            >
+              {" "}
+              {user.username}
+            </i>
+            <Link style={nonAuthStyle} to="/login">
+              <i className="fas fa-user-lock"> Login</i>
+            </Link>
+            <i
+              style={authStyle}
+              onClick={removeCookie}
+              className="fas fa-sign-out-alt"
+            >
+              Sign Out
+            </i>
+          </Fragment>
         </div>
       </div>
     </nav>

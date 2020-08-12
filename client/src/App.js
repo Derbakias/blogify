@@ -4,6 +4,10 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import {
+  TransitionGroup,
+  CSSTransition,
+} from "react-transition-group";
 import Navbar from "./Components/Navbar";
 import "./App.css";
 import StateProvider from "./Context/StateProvider";
@@ -19,44 +23,62 @@ function App() {
   return (
     <StateProvider>
       <Router>
-        <Fragment>
-          <Navbar />
-          <div className="page-wrapper container">
+        <Route
+          render={({ location }) => (
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route
-                exact
-                path="/my-posts"
-                component={MyPosts}
-              />
-              <Route
-                exact
-                path="/about"
-                component={About}
-              />
-              <Route
-                exact
-                path="/full-view/:postID"
-                component={FullView}
-              />
-              <Route
-                exact
-                path="/create"
-                component={Create}
-              />
-              <Route
-                exact
-                path="/login"
-                component={Login}
-              />
-              <Route
-                exact
-                path="/register"
-                component={Register}
-              />
+              <Fragment>
+                <Navbar />
+                <TransitionGroup>
+                  <CSSTransition
+                    timeout={100}
+                    classNames="fade"
+                    key={location.key}
+                  >
+                    <div className="page-wrapper container">
+                      <Switch location={location}>
+                        <Route
+                          exact
+                          path="/"
+                          component={Home}
+                        />
+                        <Route
+                          exact
+                          path="/my-posts"
+                          component={MyPosts}
+                        />
+                        <Route
+                          exact
+                          path="/about"
+                          component={About}
+                        />
+                        <Route
+                          exact
+                          path="/full-view/:postID"
+                          component={FullView}
+                        />
+                        <Route
+                          exact
+                          path="/create"
+                          component={Create}
+                        />
+                        <Route
+                          exact
+                          path="/login"
+                          component={Login}
+                        />
+                        <Route
+                          exact
+                          path="/register"
+                          component={Register}
+                        />
+                      </Switch>
+                    </div>
+                  </CSSTransition>
+                </TransitionGroup>
+              </Fragment>
             </Switch>
-          </div>
-        </Fragment>
+          )}
+        />
       </Router>
     </StateProvider>
   );
