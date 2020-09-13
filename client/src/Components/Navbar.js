@@ -17,11 +17,11 @@ function Navbar() {
           user_id: "",
           isAuth: false,
         });
-        history.push("/login");
+        history.push("/blogify/login");
       })
       .catch((err) => {
         console.log(err.response);
-        history.push("/login");
+        history.push("/blogify/login");
       });
   };
   let authStyle;
@@ -38,24 +38,24 @@ function Navbar() {
     <nav id="nav">
       <div className="nav-wrapper">
         <div className="logo">
-          <Link to="/">
+          <Link to="/blogify">
             <h2>Blogify</h2>
           </Link>
         </div>
         <ul className="navlinks">
           <li className="navlink">
-            <Link to="/">All</Link>
+            <Link to="/blogify">All</Link>
           </li>
           <li style={authStyle} className="navlink">
-            <Link to="/my-posts">My Posts</Link>
+            <Link to="/blogify/my-posts">My Posts</Link>
           </li>
           <li className="navlink">
-            <Link to="/about">About </Link>
+            <Link to="/blogify/about">About </Link>
           </li>
         </ul>
         <div style={authStyle} className="user">
           <Fragment>
-            <Link style={authStyle} to="/create">
+            <Link style={authStyle} to="/blogify/create">
               <i className="fas fa-folder-plus"></i>
             </Link>
             <i
@@ -65,7 +65,7 @@ function Navbar() {
               {" "}
               {user.username}
             </i>
-            <Link style={nonAuthStyle} to="/login">
+            <Link style={nonAuthStyle} to="/blogify/login">
               <i className="fas fa-user-lock"> Login</i>
             </Link>
             <i

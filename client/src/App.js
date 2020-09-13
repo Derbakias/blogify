@@ -38,37 +38,37 @@ function App() {
                       <Switch location={location}>
                         <Route
                           exact
-                          path="/"
+                          path="/blogify"
                           component={Home}
                         />
                         <Route
                           exact
-                          path="/my-posts"
+                          path="/blogify/my-posts"
                           component={MyPosts}
                         />
                         <Route
                           exact
-                          path="/about"
+                          path="/blogify/about"
                           component={About}
                         />
                         <Route
                           exact
-                          path="/full-view/:postID"
+                          path="/blogify/full-view/:postID"
                           component={FullView}
                         />
                         <Route
                           exact
-                          path="/create"
+                          path="/blogify/create"
                           component={Create}
                         />
                         <Route
                           exact
-                          path="/login"
+                          path="/blogify/login"
                           component={Login}
                         />
                         <Route
                           exact
-                          path="/register"
+                          path="/blogify/register"
                           component={Register}
                         />
                       </Switch>

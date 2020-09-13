@@ -19,7 +19,7 @@ function Login() {
           user_id: user._id,
           isAuth: true,
         });
-        history.push("/");
+        history.push("/blogify");
       })
       .catch((err) => console.log(err));
 
@@ -42,7 +42,7 @@ function Login() {
           isAuth: true,
         }));
 
-        history.push("/");
+        history.push("/blogify");
       })
       .catch((err) => {
         console.log(err.response.data.msg);
@@ -80,7 +80,7 @@ function Login() {
         />
         <div className="register box">
           <p>New User?</p>
-          <Link to="/register"> Register</Link>
+          <Link to="/blogify/register"> Register</Link>
         </div>
         <button type="submit" className="btn login-btn">
           Login

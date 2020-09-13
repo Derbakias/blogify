@@ -57,7 +57,7 @@ function FullView(props) {
     axios
       .delete(`/api/posts/${url_id}`)
       .then((res) => {
-        history.push("/");
+        history.push("/blogify");
       })
       .catch((err) => {
         console.log(err.response.data.msg);

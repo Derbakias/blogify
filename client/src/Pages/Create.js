@@ -35,7 +35,7 @@ function Create(props) {
     axios
       .post("/api/posts/", updatedObj)
       .then((res) => {
-        history.push("/");
+        history.push("/blogify");
       })
       .catch((err) => {
         console.log(err.response.data.msg);
@@ -96,7 +96,7 @@ function Create(props) {
       </div>
       <div className="post-info">
         <button
-          onClick={() => history.push("/")}
+          onClick={() => history.push("/blogify")}
           className="btn"
         >
           Cancel

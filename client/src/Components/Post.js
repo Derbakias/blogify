@@ -17,7 +17,7 @@ function Post({ posts }) {
     <div className="post-card" key={post._id}>
       <Link
         to={{
-          pathname: "/full-view/" + post._id,
+          pathname: "blogify/full-view/" + post._id,
           id: post._id,
           postData: post,
         }}

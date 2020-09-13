@@ -36,7 +36,7 @@ function Register() {
         setSuccess("Succefully Registered! Please Login..");
         setTimeout(() => {
           setSuccess("");
-          history.push("/login");
+          history.push("/blogify/login");
         }, 3000);
       }
     } catch (err) {
@@ -80,7 +80,7 @@ function Register() {
         />
         <div className="register box">
           <p>Already A User?</p>
-          <Link to="/login"> Login</Link>
+          <Link to="/blogify/login"> Login</Link>
         </div>
         <button type="submit" className="btn register-btn">
           Register
