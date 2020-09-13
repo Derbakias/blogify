@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "./static/css/main.6a16c6fd.chunk.css",
-    "main.js": "./static/js/main.d75e1c43.chunk.js",
-    "main.js.map": "./static/js/main.d75e1c43.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.8b0ae790.js",
-    "runtime-main.js.map": "./static/js/runtime-main.8b0ae790.js.map",
-    "static/js/2.1cafcfa3.chunk.js": "./static/js/2.1cafcfa3.chunk.js",
-    "static/js/2.1cafcfa3.chunk.js.map": "./static/js/2.1cafcfa3.chunk.js.map",
-    "index.html": "./index.html",
-    "precache-manifest.b2bb3165f367be7856dbe46462c3a0b7.js": "./precache-manifest.b2bb3165f367be7856dbe46462c3a0b7.js",
-    "service-worker.js": "./service-worker.js",
-    "static/css/main.6a16c6fd.chunk.css.map": "./static/css/main.6a16c6fd.chunk.css.map",
-    "static/js/2.1cafcfa3.chunk.js.LICENSE.txt": "./static/js/2.1cafcfa3.chunk.js.LICENSE.txt"
+    "main.css": "/project/static/css/main.6a16c6fd.chunk.css",
+    "main.js": "/project/static/js/main.d75e1c43.chunk.js",
+    "main.js.map": "/project/static/js/main.d75e1c43.chunk.js.map",
+    "runtime-main.js": "/project/static/js/runtime-main.a3a23da8.js",
+    "runtime-main.js.map": "/project/static/js/runtime-main.a3a23da8.js.map",
+    "static/js/2.1cafcfa3.chunk.js": "/project/static/js/2.1cafcfa3.chunk.js",
+    "static/js/2.1cafcfa3.chunk.js.map": "/project/static/js/2.1cafcfa3.chunk.js.map",
+    "index.html": "/project/index.html",
+    "precache-manifest.0d7369f27afb156c76b458304db1337b.js": "/project/precache-manifest.0d7369f27afb156c76b458304db1337b.js",
+    "service-worker.js": "/project/service-worker.js",
+    "static/css/main.6a16c6fd.chunk.css.map": "/project/static/css/main.6a16c6fd.chunk.css.map",
+    "static/js/2.1cafcfa3.chunk.js.LICENSE.txt": "/project/static/js/2.1cafcfa3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.8b0ae790.js",
+    "static/js/runtime-main.a3a23da8.js",
     "static/js/2.1cafcfa3.chunk.js",
     "static/css/main.6a16c6fd.chunk.css",
     "static/js/main.d75e1c43.chunk.js"
