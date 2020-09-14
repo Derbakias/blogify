@@ -16,7 +16,7 @@ function FullView(props) {
   useEffect(() => {
     // check if your is auth
     axios
-      .get("/api/auth")
+      .get("/blogify/api/auth")
       .then(({ data }) =>
         setUser({
           username: data.username,
@@ -27,7 +27,7 @@ function FullView(props) {
       .catch((err) => console.log(err.response.data.msg));
     // get the individual post
     axios
-      .get(`/api/posts/${url_id}`)
+      .get(`/blogify/api/posts/${url_id}`)
       .then(({ data }) => {
         setFullPost(data);
       })
@@ -43,7 +43,7 @@ function FullView(props) {
       type: e.target[2].checked ? "private" : "public",
     };
     axios
-      .put(`/api/posts/${url_id}`, updatedObj)
+      .put(`/blogify/api/posts/${url_id}`, updatedObj)
       .then((res) => {
         setEdit(false);
       })
@@ -55,7 +55,7 @@ function FullView(props) {
     alert("Are you sure?");
     // remove a post
     axios
-      .delete(`/api/posts/${url_id}`)
+      .delete(`/blogify/api/posts/${url_id}`)
       .then((res) => {
         history.push("/blogify");
       })

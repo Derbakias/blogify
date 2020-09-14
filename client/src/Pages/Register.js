@@ -16,7 +16,7 @@ function Register() {
     e.target.reset();
     try {
       const response = await fetch(
-        "http://localhost:3000/api/users",
+        "http://localhost:3000/blogify/api/users",
         {
           method: "POST",
           headers: {

@@ -10,7 +10,7 @@ function Navbar() {
   const removeCookie = (e) => {
     console.log("logout");
     axios
-      .get("/api/auth/logout")
+      .get("/blogify/api/auth/logout")
       .then((res) => {
         setUser({
           username: "",

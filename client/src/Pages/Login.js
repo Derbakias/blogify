@@ -12,7 +12,7 @@ function Login() {
   let history = useHistory();
   useEffect(() => {
     axios
-      .get("/api/auth")
+      .get("/blogify/api/auth")
       .then(({ data }) => {
         setUser({
           username: data.username,
@@ -31,7 +31,7 @@ function Login() {
     e.preventDefault();
     // login the user
     axios
-      .post("/api/auth", {
+      .post("/blogify/api/auth", {
         email: e.target[0].value,
         password: e.target[1].value,
       })

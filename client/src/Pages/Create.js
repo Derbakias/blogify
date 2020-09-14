@@ -14,7 +14,7 @@ function Create(props) {
   useEffect(() => {
     // check if user is authenticated
     axios
-      .get("/api/auth")
+      .get("/blogify/api/auth")
       .then(({ data }) =>
         setUser({
           username: data.username,
@@ -33,7 +33,7 @@ function Create(props) {
       type: e.target[2].checked ? "private" : "public",
     };
     axios
-      .post("/api/posts/", updatedObj)
+      .post("/blogify/api/posts/", updatedObj)
       .then((res) => {
         history.push("/blogify");
       })

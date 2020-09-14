@@ -19,7 +19,7 @@ function Home() {
   } = useContext(StateContext);
   useEffect(() => {
     axios
-      .get("/api/auth")
+      .get("/blogify/api/auth")
       .then(({ data }) => {
         setLoading(true);
         setUser({
@@ -34,7 +34,7 @@ function Home() {
       })
       .catch((err) => console.log(err.response.data.msg));
     axios
-      .get("/api/posts")
+      .get("/blogify/api/posts")
       .then(({ data }) => {
         setLoading(true);
         setPosts(data);
