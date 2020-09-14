@@ -1,9 +1,13 @@
 const express = require("express");
+const path = require("path");
 const router = express.Router();
 const privateRoute = require("../middleware/privateRoute");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const config = require("config");
+require("dotenv").config({
+  path: path.join(__dirname, "..", ".env"),
+});
+
 const {
   check,
   validationResult,
@@ -88,7 +92,7 @@ router.post(
 
       jwt.sign(
         { id: user._id },
-        config.get("jwtSecret"),
+        process.env.JWT_SECRET,
         {
           expiresIn: 900,
         },

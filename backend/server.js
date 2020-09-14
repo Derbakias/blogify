@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const database = require("./config/db");
+const database = require("./db");
 const cookieParser = require("cookie-parser");
 
 database();
