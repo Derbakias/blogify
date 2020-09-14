@@ -7,8 +7,8 @@ database();
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/api/users", require("./routes/users"));
-app.use("/api/auth", require("./routes/auth"));
-app.use("/api/posts", require("./routes/posts"));
+app.use("/blogify/api/users", require("./routes/users"));
+app.use("/blogify/api/auth", require("./routes/auth"));
+app.use("/blogify/api/posts", require("./routes/posts"));
 
 app.listen(6000, () => console.log("Server on port 6000"));
