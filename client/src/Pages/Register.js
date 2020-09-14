@@ -15,16 +15,13 @@ function Register() {
     };
     e.target.reset();
     try {
-      const response = await fetch(
-        "http://localhost:3000/blogify/api/users",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch("/blogify/api/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
       const res = await response.json();
       if (response.status !== 200) {
         setError(res.msg);
